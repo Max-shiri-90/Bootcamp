@@ -10,7 +10,7 @@ class Account:
         else:
             raise Exception("invalid username")
 
-        if re.match('^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)){8,40}$', password):
+        if re.match('^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)){8,40}', password):
             self.password = hashlib.sha256(password.encode('utf-8')).hexdigest()
         else:
             raise Exception("invalid password")
@@ -22,7 +22,7 @@ class Account:
         else:
             raise Exception("invalid phone number")
 
-        if re.match('^([\w\.\-]+)@([\w\.\-]+)((\.([a-zA-Z]){2,5})+)$', email):
+        if re.match('^([\w\.\-]+)@([\w\.\-]+)((\.([a-zA-Z]){2,5}))$', email):
             self.email = email
         else:
             raise Exception("invalid email")
