@@ -15,5 +15,9 @@ class Site:
     def login(self):
         pass
 
-    def logout(self):
-        pass
+    def logout(self, user):
+        if user.username in self.active_users:
+            self.active_users.remove(user.username)
+            return "logout successful"
+        else:
+            return "user is not logged in"
