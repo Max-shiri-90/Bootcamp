@@ -1,5 +1,22 @@
 from django.shortcuts import render
+from .models import TodoListItem
+from django.http import HttpResponseRedirect
 
 
 def todoapp_view(request):
-    return render(request, 'todolist.html')
+    all_todo_items = TodoListItem.objects.all()
+    return render(request, 'todolist.html',
+                  {'all_items': all_todo_items})
+
+
+def todo_view(request):
+    x = request.POST['content']
+    new_item = TodoListItem(content=x)
+    new_item.save()
+    return HttpResponseRedirect('/todoapp/')
+
+
+def delete_todo_view(request, i):
+    y = TodoListItem.objects.get(id=i)
+    y.delete()
+    return HttpResponseRedirect('/todoapp/')
