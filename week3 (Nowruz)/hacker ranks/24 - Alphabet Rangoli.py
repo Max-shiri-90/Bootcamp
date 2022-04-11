@@ -1,11 +1,12 @@
+import string
+
 def print_rangoli(size):
-    import string
-    design = string.ascii_lowercase
-    lst = []
-    for i in range(size):
-        s = "-".join(design[i:size])
-        lst.append((s[::-1] + s[1:]).center(4 * size - 3, "-"))
-    print('\n'.join(lst[:0:-1] + lst))
+    lower_alphabet =string.ascii_lowercase[0:size]
+    
+    for i in range(size-1, -size, -1):
+        j = abs(i)
+        line = lower_alphabet[size:j:-1] + lower_alphabet[j:size]
+        print ("--"*j+ '-'.join(line)+"--"*j)
 
 
 if __name__ == '__main__':
