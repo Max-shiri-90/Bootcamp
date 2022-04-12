@@ -1,7 +1,8 @@
 import re
 
-test_cases_len = int(input())
-for elm in range(test_cases_len):
+
+test_case = int(input())
+for elm in range(test_case):
     try:
         print(bool(re.compile(input())))
     except:
