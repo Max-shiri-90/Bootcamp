@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 from django.forms import ValidationError
 from django.utils import timezone
 
+
 class Category(models.Model):
     name = models.CharField(max_length=255, primary_key=True, unique=True)
 
     def __str__(self) -> str:
         return self.name
+
 
 def due_date_validator(value):
     if value > timezone.now():
