@@ -1,0 +1,9 @@
+<h1>task create</h1>
+<a href="{% url 'tasks' %}">go back</a>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+date sample: yyyy-mm-dd hh:mm:ss

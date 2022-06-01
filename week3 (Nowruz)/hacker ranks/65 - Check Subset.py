@@ -1,2 +1,8 @@
-for i in range(1,int(raw_input())+1): 
-    print(((10**i)/9)**2)
+T = int(input())
+
+for _ in range(T):
+    a = input()
+    A = set(input().split())
+    b = int(input())
+    B = set(input().split())
+    print(A.issubset(B))
